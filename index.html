@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site de Doações</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+    <h1>Site de Doações</h1>
+    <nav>
+        <ul>
+            <li><a href="#">Início</a></li>
+            <li><a href="#">Sobre</a></li>
+            <li><a href="#">Contato</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main class="container">
+    <section id="login-box">
+        <h2>Login</h2>
+        <form id="login-form" onsubmit="return loginUser()">
+            <label for="loginUsername">Usuário:</label>
+            <input type="text" id="loginUsername" name="username" placeholder="Digite seu nome de usuário" required>
+            
+            <label for="loginPassword">Senha:</label>
+            <input type="password" id="loginPassword" name="password" placeholder="Digite sua senha" required>
+            
+            <input type="submit" value="Login">
+        </form>
+        <p>Não tem uma conta? <a href="#" id="signup-link" onclick="showSignupForm()">Cadastre-se aqui</a></p>
+    </section>
+
+    <section id="signup-box" style="display: none;">
+        <h2>Cadastro</h2>
+        <form id="signup-form" onsubmit="return registerUser()">
+            <label for="signupName">Nome:</label>
+            <input type="text" id="signupName" name="name" placeholder="Digite seu nome completo" required>
+            
+            <label for="signupEmail">E-mail:</label>
+            <input type="email" id="signupEmail" name="email" placeholder="Digite seu e-mail" required>
+            
+            <label for="signupPhone">Telefone:</label>
+            <input type="tel" id="signupPhone" name="phone" placeholder="Digite seu telefone" required>
+            
+            <label for="signupUsername">Usuário:</label>
+            <input type="text" id="signupUsername" name="username" placeholder="Crie um nome de usuário" required>
+            
+            <label for="signupPassword">Senha:</label>
+            <input type="password" id="signupPassword" name="password" placeholder="Crie uma senha" required>
+            
+            <label for="signupConfirmPassword">Confirme a Senha:</label>
+            <input type="password" id="signupConfirmPassword" name="confirmPassword" placeholder="Confirme sua senha" required>
+            
+            <input type="submit" value="Cadastrar">
+        </form>
+        <p>Já tem uma conta? <a href="#" onclick="showLoginForm()">Faça login aqui</a></p>
+    </section>
+
+    <h2 id="donation-heading">DOAÇÕES RIO GRANDE DO SUL</h2>
+    <section>
+        <form id="donate-form">
+            <label for="amount">Valor da Doação:</label>
+            <input type="number" id="amount" name="amount" placeholder="Digite o valor em reais" required>
+            
+            <label for="name">Nome:</label>
+            <input type="text" id="name" name="name" placeholder="Seu nome" required>
+            
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" name="email" placeholder="Seu e-mail" required>
+            
+            <label for="payment">Método de Pagamento:</label>
+            <select id="payment" name="payment" required onchange="togglePixKey()">
+                <option value="">Selecione...</option>
+                <option value="credit">Cartão de Crédito</option>
+                <option value="debit">Cartão de Débito</option>
+                <option value="paypal">PayPal</option>
+                <option value="pix">PIX</option>
+            </select>
+
+            <div id="pix-key" style="display: none;">
+                <label>Chave PIX:</label>
+                <p>123456789</p>
+            </div>
+            
+            <input type="submit" value="Doar">
+        </form>
+    </section>
+</main>
+
+<footer>
+    <p>&copy; 2024 Site de Doações</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
